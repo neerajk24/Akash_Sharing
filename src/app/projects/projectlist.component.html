@@ -1,0 +1,119 @@
+<!-- Navigation Start Here -->
+<!--<header class="main-header overlayer ">
+  <div class="w-row"><div class="w-clearfix w-col w-col-8 w-col-small-8 w-col-tiny-8">
+        <a href="/?ref=ctrse_header" title="Catarse" class="header-logo w-inline-block" [routerLink]="['/welcome']">
+          <img alt="Logo big" src="https://www.catarse.me/assets/catarse_bootstrap/logo_big.png"></a>
+      <div id="menu-components">
+        <a href="/start?ref=ctrse_header" class="w-hidden-small w-hidden-tiny header-link w-nav-link">Submit Your Project</a>
+        <a href="/explore?ref=ctrse_header" class="w-hidden-small w-hidden-tiny header-link w-nav-link"  [routerLink]="['/projects']">Explore</a>
+
+    <span id="menu-search">
+	  <div id="discover-form-wrapper" class="w-form w-hidden-small w-hidden-tiny header-search">
+      <form accept-charset="UTF-8" action="/pt/explore?ref=ctrse_header" id="search-form" method="get" class="discover-form">
+
+      <input autocomplete="off" id="pg_search" name="pg_search" placeholder="Busque projetos" class="w-input text-field prefix search-input" type="text"  [(ngModel)]='listSearch'>
+      </form>
+
+    </div>
+    <a href="#" id="pg_search_submit" class="w-inline-block w-hidden-small w-hidden-tiny btn-dark btn-attached postfix"><img alt="Lupa" data-pin-nopin="true" src="https://www.catarse.me/assets/catarse_bootstrap/lupa.png" class="header-lupa"></a>
+  </span>
+  </div>
+</div><div class="text-align-right w-col w-col-4 w-col-small-4 w-col-tiny-4"><a href="/pt/login?ref=ctrse_header" class="w-nav-link header-link w-nav-link btn-edit u-right">Login</a></div></div><div class="header-controls-mobile w-hidden-main w-hidden-medium"><a href="/pt/start?ref=ctrse_header" class="header-link w-nav-link">Comece seu projeto</a><a href="/pt/explore?ref=ctrse_header" class="header-link w-nav-link">Explore</a></div>
+</header>
+<router-outlet></router-outlet>-->
+
+<!-- Navigation End Here -->
+
+<div id="explore">
+  <div class="w-section hero-search">
+    <div id="search" class="w-container w-hidden-main w-hidden-medium">
+      <div class="w-row">
+          <div class="w-col w-col-10 u-marginbottom-20"><div class="w-form"><form id="email-form" action="/pt/explore?ref=ctrse_explore_pgsearch" method="GET"><div class="w-row"><div class="w-col w-col-10 w-col-small-10 w-col-tiny-10"><input name="pg_search" placeholder="Busque projetos" id="pg_search_inside" class="w-input text-field negative prefix" type="text"></div><div class="w-col w-col-2 w-col-small-2 w-col-tiny-2"><button class="w-inline-block btn btn-dark btn-attached postfix"><img src="https://daks2k3a4ib2z.cloudfront.net/54b440b85608e3f4389db387/54e44178b2135fce2b6cd235_lupa.png" class="header-lupa"></button></div></div></form></div>
+        </div>
+      </div>
+    </div>
+    <div class="w-container u-marginbottom-10">
+        <div class="u-text-center u-marginbottom-40">
+          <a id="explore-open" href="javascript:void(0);" class="link-hidden-white fontweight-light fontsize-larger">Explore projetos incríveis <span id="explore-btn" class="fa fa-angle-down opened"></span></a>
+        </div>
+        <div id="categories" class="category-slider opened">
+          <div class="w-row u-marginbottom-30">
+            <div class="w-col w-col-2 w-col-small-6 w-col-tiny-6"><a href="#by_category_id/23" class="w-inline-block btn-category"><div>Arquitetura e Urbanismo<span class="badge explore">32</span></div></a></div>
+            <div class="w-col w-col-2 w-col-small-6 w-col-tiny-6"><a href="#by_category_id/1" class="w-inline-block btn-category"><div>Artes<span class="badge explore">93</span></div></a></div>
+            <div class="w-col w-col-2 w-col-small-6 w-col-tiny-6"><a href="#by_category_id/18" class="w-inline-block btn-category"><div>Ciência e Tecnologia<span class="badge explore">132</span></div></a></div>
+            <div class="w-col w-col-2 w-col-small-6 w-col-tiny-6"><a href="#by_category_id/13" class="w-inline-block btn-category"><div>Cinema e Vídeo<span class="badge explore">138</span></div></a></div>
+            <div class="w-col w-col-2 w-col-small-6 w-col-tiny-6"><a href="#by_category_id/9" class="w-inline-block btn-category"><div>Design e Moda<span class="badge explore">40</span></div></a></div>
+            <div class="w-col w-col-2 w-col-small-6 w-col-tiny-6"><a href="#by_category_id/9" class="w-inline-block btn-category"><div>Design e Moda<span class="badge explore">40</span></div></a></div>
+         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="w-section section u-marginbottom-40">
+<div class="w-container">
+  <!-- Poupla and See All Section-->
+    <div class="w-row u-marginbottom-30">
+        <div class="w-col w-col-10 w-col-small-6 w-col-tiny-6">
+            <div class="fontsize-large lineheight-looser">Popular</div>
+        </div>
+        <div class="w-col w-col-2 w-col-small-6 w-col-tiny-6">
+          <div class="w-row">
+            <div class="w-col w-col-12">
+              <a href="/explore?ref=home_score&amp;filter=all" class="btn btn-small btn-terciary">See All</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Popular and See All Secton End-->
+      <div class="w-row" *ngIf='projects && projects.length'>
+
+
+        <div class="w-col w-col-4" *ngFor='let project of projects | projectFilter:listSearch'>
+          <div class="card-project card u-radius">
+            <div>
+              <a href="/cantinho_do_caio_r_lyeh_boy_d0fc?ref=home_score" style="background-image: url(&quot;https://s3-sa-east-1.amazonaws.com/cdn.br.catarse/uploads/project/uploaded_image/60280/project_thumb_large_catarse_capa_2.jpg&quot;); display: block;" class="card-project-thumb"></a>
+              <!-- <a href="/cantinho_do_caio_r_lyeh_boy_d0fc?ref=home_score" style="background-image: url(&quot;https://s3-sa-east-1.amazonaws.com/cdn.br.catarse/uploads/project/uploaded_image/60280/project_thumb_large_catarse_capa_2.jpg&quot;); display: block;" class="card-project-thumb"></a>-->
+
+              <div class="card-project-description alt">
+                <div class="fontweight-semibold u-text-center-small-only lineheight-tight u-marginbottom-10 fontsize-base">
+                  <a [routerLink]="['/projects', project.projectId]" class="link-hidden">{{project.projectName}}</a>
+                </div>
+                <div class="w-hidden-small w-hidden-tiny fontsize-smallest fontcolor-secondary u-marginbottom-20">{{project.projectBy}}</div>
+                <div class="w-hidden-small w-hidden-tiny fontcolor-secondary fontsize-smaller">
+                  <a href="/cantinho_do_caio_r_lyeh_boy_d0fc?ref=home_score" class="link-hidden">{{project.projectDescrition}}</a>
+                </div>
+              </div>
+              <div class="w-hidden-small w-hidden-tiny card-project-author altt">
+                <div class="fontsize-smallest fontcolor-secondary">
+                  <span class="fa fa-map-marker fa-1"></span>Teresina - PI</div>
+              </div>
+              <div class="card-project-meter aon online incomplete">
+                <div class="meter">
+                  <div style="width: 58.44%;" class="meter-fill"></div>
+                </div>
+              </div>
+              <div class="card-project-stats">
+                <div class="w-row">
+                  <div class="w-col w-col-4 w-col-small-4 w-col-tiny-4">
+                    <div class="fontsize-base fontweight-semibold">58%</div>
+                  </div>
+                  <div class="w-col w-col-4 w-col-small-4 w-col-tiny-4 u-text-center-small-only">
+                    <div class="fontsize-smaller fontweight-semibold">R$ 3.892</div>
+                    <div class="fontsize-smallest lineheight-tightest">Levantados</div>
+                  </div>
+                  <div class="w-col w-col-4 w-col-small-4 w-col-tiny-4 u-text-right">
+                    <div class="fontsize-smaller fontweight-semibold">52 dias</div>
+                    <div class="fontsize-smallest lineheight-tightest">Restantes</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
